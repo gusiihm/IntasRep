@@ -4,4 +4,11 @@
     <string name="title_search">Buscar</string>
     <string name="title_likes">Guardados</string>
     <string name="title_profile">Perfil</string>
+    <string name="title_Sedan">Sedan</string>
+    <string name="title_Pick_Up">Suv</string>
+    <string name="title_SUV">Pick UP</string>
+    <string name="title_Hatch_back">Hatch Back</string>
+    <string name="title_Otros">Otros</string>
+
+
 </resources>

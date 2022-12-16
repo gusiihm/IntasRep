@@ -31,10 +31,27 @@ class CarsFragment : Fragment() {
         _binding = FragmentCarsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        carViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val textView1: TextView = binding.sedanTextMenu
+        carViewModel.text1.observe(viewLifecycleOwner) {
+            textView1.text = it
         }
+        val textView2: TextView = binding.textPicUpMenu
+        carViewModel.text2.observe(viewLifecycleOwner) {
+            textView2.text = it
+        }
+        val textView3: TextView = binding.textSuvMenu
+        carViewModel.text3.observe(viewLifecycleOwner) {
+            textView3.text = it
+        }
+        val textView4: TextView = binding.textHatchBackMenu
+        carViewModel.text4.observe(viewLifecycleOwner) {
+            textView4.text = it
+        }
+        val textView5: TextView = binding.textOtrosMenu
+        carViewModel.text5.observe(viewLifecycleOwner) {
+            textView5.text = it
+        }
+
         return root
     }
 
