@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_car"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="@string/title_cars" />
+
+    <item
+        android:id="@+id/navigation_Search"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/title_search" />
+
+    <item
+        android:id="@+id/navigation_likes"
+        android:icon="@drawable/ic_baseline_save_24"
+        android:title="@string/title_likes" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="@string/title_profile" />
+
+</menu>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_cars">Coches</string>
+    <string name="title_search">Buscar</string>
+    <string name="title_likes">Guardados</string>
+    <string name="title_profile">Perfil</string>
+</resources>

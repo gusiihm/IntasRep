@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_car">
+
+    <fragment
+        android:id="@+id/navigation_car"
+        android:name="com.example.myapplication.ui.cars.CarsFragment"
+        android:label="@string/title_cars"
+        tools:layout="@layout/fragment_cars" />
+
+    <fragment
+        android:id="@+id/navigation_Search"
+        android:name="com.example.myapplication.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+    android:id="@+id/navigation_likes"
+    android:name="com.example.myapplication.ui.likes.LikesFragment"
+    android:label="@string/title_likes"
+    tools:layout="@layout/fragment_likes" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.myapplication.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
