@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -29,7 +30,18 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_car, R.id.navigation_Search, R.id.navigation_likes, R.id.navigation_profile
             )
         )
+        supportActionBar?.hide()
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+    public fun replaceFragment(fragment : Fragment){
+
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.nav_host_fragment_activity_main,fragment)
+
+        fragmentTransaction.commit()
+
+
     }
 }

@@ -19,7 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+
+        <Button
             android:id="@+id/sedan_text_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,17 +30,16 @@
             android:layout_marginBottom="15dp"
             android:layout_weight="1"
             android:background="@drawable/cutom"
+            android:drawableLeft="@mipmap/ic_launcher_foreground"
             android:fontFamily="@font/bebas_neue"
             android:gravity="top"
+            android:paddingHorizontal="20dp"
             android:text="@string/title_Sedan"
             android:textAlignment="center"
             android:textColor="@color/black"
-
             app:autoSizeTextType="uniform" />
 
-
-        <TextView
-
+        <Button
             android:id="@+id/text_pic_up_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,12 +51,13 @@
             android:background="@drawable/cutom"
             android:fontFamily="@font/bebas_neue"
             android:gravity="top"
+            android:paddingHorizontal="20dp"
             android:text="@string/title_SUV"
             android:textAlignment="center"
             android:textColor="@color/black"
             app:autoSizeTextType="uniform" />
-        <TextView
-
+        <Button
+            android:paddingHorizontal="20dp"
             android:id="@+id/text_suv_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,7 +74,8 @@
             android:textColor="@color/black"
             app:autoSizeTextType="uniform" />
 
-        <TextView
+        <Button
+            android:paddingHorizontal="10dp"
             android:id="@+id/text_hatch_back_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,8 +92,8 @@
             android:textColor="@color/black"
             app:autoSizeTextType="uniform" />
 
-        <TextView
-
+        <Button
+            android:paddingHorizontal="20dp"
             android:id="@+id/text_otros_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

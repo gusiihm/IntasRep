@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.ViewModelProvider
+import com.example.myapplication.MainActivity
 import com.example.myapplication.databinding.FragmentCarsBinding
+import com.example.myapplication.ui.SelectedFragment
+
 
 class CarsFragment : Fragment() {
 
@@ -32,6 +35,10 @@ class CarsFragment : Fragment() {
         val root: View = binding.root
 
         val textView1: TextView = binding.sedanTextMenu
+        textView1.setOnClickListener{
+            val fragment = SelectedFragment.newInstance(1)
+            (activity as MainActivity).replaceFragment(SelectedFragment())
+        }
         carViewModel.text1.observe(viewLifecycleOwner) {
             textView1.text = it
         }
