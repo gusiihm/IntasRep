@@ -1,0 +1,6 @@
+Chevrolet Sail
+Motor de 1485cc
+Potencia 111cv a 6000rpm
+Par maximo 141Nm 
+0-100Km/h en 11,3s
+Velocidad maxima 

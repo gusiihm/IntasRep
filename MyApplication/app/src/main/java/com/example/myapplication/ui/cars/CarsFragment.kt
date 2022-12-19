@@ -37,7 +37,7 @@ class CarsFragment : Fragment() {
         val textView1: TextView = binding.sedanTextMenu
         textView1.setOnClickListener{
             val fragment = SelectedFragment.newInstance(1)
-            (activity as MainActivity).replaceFragment(SelectedFragment())
+            (activity as MainActivity).replaceFragment(fragment)
         }
         carViewModel.text1.observe(viewLifecycleOwner) {
             textView1.text = it

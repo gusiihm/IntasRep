@@ -1,6 +1,7 @@
 package com.example.myapplication.ui
 
 import android.os.Bundle
+import android.os.Environment
 import android.provider.DocumentsContract.Root
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,11 @@ import android.widget.TextView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentCarsBinding
 import com.example.myapplication.databinding.FragmentSelectedBinding
+import java.io.File
+import java.io.IOException
+import java.io.InputStream
+import java.nio.channels.AsynchronousFileChannel.open
+import java.io.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,8 +47,50 @@ class SelectedFragment : Fragment() {
     ): View? {
         _binding = FragmentSelectedBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        var data = ""
         val textviw:TextView = binding.textprueba
-        textviw.text="Sedan"
+        if(param1 == 1) {
+            textviw.text = "Sedan";
+            data = "Sedan"
+        }
+        when(param1){
+            1 -> {textviw.text = "Sedan";
+                data = "Sedans"}
+
+            2 -> {textviw.text = "SUV";
+                data = "SUV"}
+
+            3 -> {textviw.text = "Pick Up";
+                data = "Pick_Up"}
+
+            4 -> {textviw.text = "Hatch Back";
+                data = "Hatch Back"}
+
+            5 -> {textviw.text = "Otros";
+                data = "Otros"}
+            else -> {
+                textviw.text = "Fallo"
+            }
+
+        }
+        val myInputStream: InputStream
+        var fName= ""
+        try {
+            val textView: TextView = binding.textView2
+
+            var a  = requireContext().assets.open("Data_Cars/"+ data+"/name_cars.txt").bufferedReader().use{
+               br -> br.lines().forEach{
+                   textView.text=it
+            }
+            }
+
+
+        }catch (e: IOException) {
+            // Exception
+            e.printStackTrace()
+        }
+
+
         return root
     }
 
