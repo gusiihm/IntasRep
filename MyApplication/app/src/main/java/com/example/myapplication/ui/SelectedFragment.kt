@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.DocumentsContract.Root
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentCarsBinding
 import com.example.myapplication.databinding.FragmentSelectedBinding
@@ -73,16 +77,20 @@ class SelectedFragment : Fragment() {
             }
 
         }
-        val myInputStream: InputStream
-        var fName= ""
-        try {
-            val textView: TextView = binding.textView2
 
+
+        try {
+            var algo =(activity as MainActivity).give_this_manager()
+            binding.rvstrings.layoutManager=algo
+            var lista: List<Pair<String,String>> = mutableListOf()
             var a  = requireContext().assets.open("Data_Cars/"+ data+"/name_cars.txt").bufferedReader().use{
                br -> br.lines().forEach{
-                   textView.text=it
+                    lista += Pair<String,String>(data,it.toString())
+                }
+
             }
-            }
+            val adapter = adaptercarname(lista)
+            binding.rvstrings.adapter=adapter
 
 
         }catch (e: IOException) {
@@ -113,4 +121,5 @@ class SelectedFragment : Fragment() {
                 }
             }
     }
+
 }

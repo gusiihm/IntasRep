@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -44,4 +45,10 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    fun give_this_manager(): LinearLayoutManager {
+       return LinearLayoutManager(this)
+
+    }
+
+
 }

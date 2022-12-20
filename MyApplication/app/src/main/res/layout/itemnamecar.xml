@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+
+
+
+        <TextView
+
+            android:id="@+id/textcar_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+
+            android:background="@drawable/cutom"
+            android:fontFamily="@font/bebas_neue"
+            android:gravity="top"
+            android:paddingHorizontal="20dp"
+            android:text="@string/title_Sedan"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="40dp" />
+
+    </LinearLayout>
