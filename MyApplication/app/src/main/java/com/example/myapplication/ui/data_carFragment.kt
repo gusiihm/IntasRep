@@ -99,7 +99,7 @@ class data_carFragment : Fragment() {
                     if (it == param1+":"+param2) {
                         checkBox.setChecked(true)
                     }
-                    car_saved += it.toString()
+                    car_saved += it.toString()+":\n"
                 }
             }
         }catch (e: Exception){
@@ -111,7 +111,8 @@ class data_carFragment : Fragment() {
                 //guardar datos
                 var fileOutputStream:FileOutputStream
                 fileOutputStream= (activity as MainActivity).openFileOutput("carsafe",Context.MODE_PRIVATE)
-                var aux = param1+":"+param2+"\n"
+                var aux:String = "$param1:$param2\n"
+
                 car_saved+=aux
                 fileOutputStream.write(car_saved.toByteArray())
                 (activity as MainActivity).create_toast("Car safe")
