@@ -1,11 +1,13 @@
 package com.example.myapplication.ui.profile
 
 import android.arch.lifecycle.ViewModelProvider
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.myapplication.databinding.FragmentProfileBinding
 
@@ -37,6 +39,9 @@ class ProfileFragment : Fragment() {
         profileViewModel._text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+        val img:ImageView =binding.imageView
+        var d : Drawable = Drawable.createFromStream( requireContext().assets.open("Data_Cars/5578703.png"), null)
+        img.setImageDrawable(d)
         return root
     }
 

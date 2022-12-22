@@ -1,15 +1,18 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication.databinding.ActivityMainBinding
+import java.time.Duration
 
 class MainActivity : AppCompatActivity() {
 
@@ -49,6 +52,9 @@ class MainActivity : AppCompatActivity() {
        return LinearLayoutManager(this)
 
     }
+   fun create_toast(string: String){
+       Toast.makeText(this,string,Toast.LENGTH_SHORT).show()
 
+   }
 
 }

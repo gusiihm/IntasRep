@@ -1,15 +1,26 @@
 package com.example.myapplication.ui
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentDataCarBinding
+import com.example.myapplication.ui.search.adapter2infocar
+import java.io.BufferedReader
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStreamReader
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,14 +59,76 @@ class data_carFragment : Fragment() {
         val textView:TextView=binding.textnombrecohe
         textView.text= param2
         var string =""
+        var listNameData:List<String> = mutableListOf()
+        var listvalData:List<String> = mutableListOf()
         requireContext().assets.open("Data_Cars/"+ param1 +"/"+param2+"/data.txt").bufferedReader().use{
                 br -> br.lines().forEach{
-           string+= it.toString()+"\n"
-        }
+
+            var stg =it.toString().split(":")
+            listNameData+= stg[0]
+            listvalData += stg[1]
+
+        }}
+
+        try {
+            var algo = (activity as MainActivity).give_this_manager()
+            binding.datanamecarrv.layoutManager = algo
+            var adapternamedata = adapter1infocar(listNameData)
+            binding.datanamecarrv.adapter = adapternamedata
+            var algo2 = (activity as MainActivity).give_this_manager()
+            binding.dataCarrv.layoutManager = algo2
+            var adapter2infocar = adapter2infocar(listvalData)
+            binding.dataCarrv.adapter = adapter2infocar
 
         }
-        val textdata:TextView=binding.textView
-        textdata.text= string
+
+    catch (e: IOException) {
+        // Exception
+        e.printStackTrace()
+    }
+        val checkBox: CheckBox= binding.radioButton
+        var fileInputStream: FileInputStream? =null
+        var car_saved: String = ""
+        try {
+            fileInputStream = (activity as MainActivity).openFileInput("carsafe")
+            var inputStreamReader: InputStreamReader = InputStreamReader(fileInputStream)
+
+            val bufferedReader: BufferedReader = BufferedReader(inputStreamReader)
+            bufferedReader.use { br ->
+                br.lines().forEach {
+                    if (it == param1+":"+param2) {
+                        checkBox.setChecked(true)
+                    }
+                    car_saved += it.toString()
+                }
+            }
+        }catch (e: Exception){
+            e.printStackTrace()
+        }
+
+        checkBox.setOnClickListener {
+            if (checkBox.isChecked) {
+                //guardar datos
+                var fileOutputStream:FileOutputStream
+                fileOutputStream= (activity as MainActivity).openFileOutput("carsafe",Context.MODE_PRIVATE)
+                var aux = param1+":"+param2+"\n"
+                car_saved+=aux
+                fileOutputStream.write(car_saved.toByteArray())
+                (activity as MainActivity).create_toast("Car safe")
+            }else{
+                var list =car_saved.split(param1+":"+param2+"\n")
+                var newcarsafe:String
+                if (list.size>1){
+                newcarsafe= list[0]+list[1]}else
+                {
+                    newcarsafe=""
+                }
+                var fileOutputStream:FileOutputStream
+                fileOutputStream= (activity as MainActivity).openFileOutput("carsafe",Context.MODE_PRIVATE)
+                fileOutputStream.write(newcarsafe.toByteArray())
+                (activity as MainActivity).create_toast("Car remove")
+            }
+        }
         val img:ImageView = binding.imgCar
         var d :Drawable=Drawable.createFromStream( requireContext().assets.open("Data_Cars/"+ param1 +"/"+param2+"/img.jpg"), null)
         img.setImageDrawable(d)

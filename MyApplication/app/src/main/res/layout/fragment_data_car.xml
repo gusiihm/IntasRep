@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/te"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.data_carFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -16,36 +17,83 @@
 
         >
 
-        <TextView
-        android:id="@+id/textnombrecohe"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/buttons"
-        android:fontFamily="@font/bebas_neue"
-        android:gravity="top"
-        android:paddingHorizontal="20dp"
-        android:text="@string/hello_blank_fragment"
-        android:textColor="@color/black"
-        app:autoSizeTextType="uniform" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="horizontal"
+            android:background="@color/buttons">
+
+            <TextView
+                android:paddingTop="10dp"
+                    android:text="@string/hello_blank_fragment"
+                    android:id="@+id/textnombrecohe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/buttons"
+                    android:fontFamily="@font/bebas_neue"
+                    android:gravity="top"
+                    android:paddingHorizontal="20dp"
+
+                    android:textColor="@color/black"
+                    android:textSize="40dp" />
+
+            <CheckBox
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:button="@null"
+                android:background="@color/buttons"
+                android:paddingRight="20dp"
+
+                android:drawableRight="@drawable/radio_button_selector"
+                android:editable="true"
+                android:gravity="center"
+                android:textAlignment="textEnd" />
+
+
+        </LinearLayout>
+
 
         <ImageView
 
             android:id="@+id/img_car"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/cutom" />
+            android:layout_height="300dp"
+            android:background="@color/buttons"
+            android:src="@drawable/cutom"
+            />
 
-        <TextView
-            android:id="@+id/textView"
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="match_parent">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/datanamecarrv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                </android.support.v7.widget.RecyclerView>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/data_carrv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+        </FrameLayout>
 
 
     </LinearLayout>
-
 
 
 </FrameLayout>

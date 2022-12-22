@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">InstaRep</string>
     <string name="title_cars">Coches</string>
     <string name="title_search">Buscar</string>
     <string name="title_likes">Guardados</string>
@@ -9,6 +9,7 @@
     <string name="title_SUV">SUV</string>
     <string name="title_Hatch_back">Hatch Back</string>
     <string name="title_Otros">Otros</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

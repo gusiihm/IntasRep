@@ -68,7 +68,7 @@ class SelectedFragment : Fragment() {
                 data = "Pick_Up"}
 
             4 -> {textviw.text = "Hatch Back";
-                data = "Hatch Back"}
+                data = "Hacth_back"}
 
             5 -> {textviw.text = "Otros";
                 data = "Otros"}

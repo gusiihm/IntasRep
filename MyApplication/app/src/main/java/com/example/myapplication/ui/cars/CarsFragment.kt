@@ -46,17 +46,33 @@ class CarsFragment : Fragment() {
         carViewModel.text2.observe(viewLifecycleOwner) {
             textView2.text = it
         }
+        textView2.setOnClickListener{
+            val fragment = SelectedFragment.newInstance(2)
+            (activity as MainActivity).replaceFragment(fragment)
+        }
         val textView3: TextView = binding.textSuvMenu
         carViewModel.text3.observe(viewLifecycleOwner) {
             textView3.text = it
+        }
+        textView3.setOnClickListener{
+            val fragment = SelectedFragment.newInstance(3)
+            (activity as MainActivity).replaceFragment(fragment)
         }
         val textView4: TextView = binding.textHatchBackMenu
         carViewModel.text4.observe(viewLifecycleOwner) {
             textView4.text = it
         }
+        textView4.setOnClickListener{
+            val fragment = SelectedFragment.newInstance(4)
+            (activity as MainActivity).replaceFragment(fragment)
+        }
         val textView5: TextView = binding.textOtrosMenu
         carViewModel.text5.observe(viewLifecycleOwner) {
             textView5.text = it
+        }
+        textView5.setOnClickListener{
+            val fragment = SelectedFragment.newInstance(5)
+            (activity as MainActivity).replaceFragment(fragment)
         }
 
         return root
